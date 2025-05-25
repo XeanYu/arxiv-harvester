@@ -150,4 +150,7 @@ Thumbs.db
 test_*.py
 *_test.py
 temp/
-output/ 
+output/
+
+# Original single file version
+main.py 
