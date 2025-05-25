@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-ArXiv爬虫使用示例
+ArXiv Harvester 使用示例
 
-展示ArXiv爬虫的基本使用方法和主要功能。
+展示如何使用ArXiv Harvester的各种功能。
 """
 
 import sys
@@ -11,8 +11,8 @@ import os
 # 添加当前目录到Python路径
 sys.path.insert(0, '.')
 
-from arxiv_scraper import ArxivScraper
-from arxiv_scraper.utils import OutputFormatter
+from core.scraper import ArxivScraper
+from utils.output_formatter import OutputFormatter
 
 
 def basic_usage_example():

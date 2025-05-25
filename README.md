@@ -49,7 +49,7 @@ pip install -r requirements.txt
 ### 基本使用
 
 ```python
-from arxiv_scraper import ArxivScraper
+from core.scraper import ArxivScraper
 
 # 创建爬虫实例
 with ArxivScraper() as scraper:
@@ -66,8 +66,8 @@ with ArxivScraper() as scraper:
 ### 美化输出
 
 ```python
-from arxiv_scraper import ArxivScraper
-from arxiv_scraper.utils import OutputFormatter
+from core.scraper import ArxivScraper
+from utils.output_formatter import OutputFormatter
 
 # 创建格式化器
 formatter = OutputFormatter(enable_rich=True)
@@ -122,7 +122,7 @@ ArXiv爬虫现在支持**40个类别**，覆盖**16个学科分组**：
 #### 🔍 类别搜索和管理
 
 ```python
-from arxiv_scraper import Config
+from config.settings import Config
 
 # 获取所有支持的类别
 all_categories = Config.get_all_categories()
@@ -217,7 +217,7 @@ print(f"CS类别总论文数: {total_cs_papers}")
 ### Rich美化输出
 
 ```python
-from arxiv_scraper.utils import OutputFormatter
+from utils.output_formatter import OutputFormatter
 
 # 启用Rich格式化
 formatter = OutputFormatter(enable_rich=True)
@@ -237,6 +237,8 @@ if papers[0].full_content:
 
 ```python
 # 只输出关键信息，适用于脚本自动化
+from utils.output_formatter import OutputFormatter
+
 formatter = OutputFormatter(enable_rich=True)
 formatter.quiet_mode = True
 
@@ -254,6 +256,8 @@ formatter.print_critical("重要信息会显示")  # 强制输出
 
 ```python
 # 关闭Rich，使用纯文本
+from utils.output_formatter import OutputFormatter
+
 formatter = OutputFormatter(enable_rich=False)
 formatter.print_papers_table(papers)
 ```
@@ -278,8 +282,9 @@ export ARXIV_LOG_LEVEL=INFO            # 日志级别
 ### 代码配置
 
 ```python
-from arxiv_scraper.utils import HttpClient, OutputFormatter
-from arxiv_scraper import ArxivScraper
+from utils.http_client import HttpClient
+from utils.output_formatter import OutputFormatter
+from core.scraper import ArxivScraper
 
 # 自定义HTTP客户端
 http_client = HttpClient(timeout=60, max_retries=5)
@@ -290,7 +295,7 @@ formatter = OutputFormatter(enable_rich=True)
 formatter.quiet_mode = True  # 启用静默模式
 
 # 全局设置Rich输出
-from arxiv_scraper.utils import set_rich_output
+from utils.output_formatter import set_rich_output
 set_rich_output(False)  # 全局关闭Rich输出
 ```
 
@@ -387,7 +392,7 @@ class OutputFormatter:
 ### 自定义解析器
 
 ```python
-from arxiv_scraper.parsers.html_parser import ArxivHtmlParser
+from parsers.html_parser import ArxivHtmlParser
 
 class CustomParser(ArxivHtmlParser):
     def parse_custom_field(self, soup):
@@ -424,6 +429,7 @@ with open("papers.csv", "w", newline="", encoding="utf-8") as f:
 
 ```python
 import logging
+from core.scraper import ArxivScraper
 
 # 配置日志
 logging.basicConfig(level=logging.INFO)
