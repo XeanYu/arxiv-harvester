@@ -1,29 +1,30 @@
 """
-输出格式化工具
+输出格式化器
 
-提供Rich美化输出功能，支持表格、面板、进度条等。
+提供Rich格式化输出和普通文本输出功能。
 """
 
+import os
 import sys
-from typing import List, Optional, Dict, Any, Union
+from typing import List, Dict, Any, Optional, Union
 from datetime import datetime
 
+# Rich相关导入（可选）
 try:
     from rich.console import Console
     from rich.table import Table
     from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TaskProgressColumn
     from rich.text import Text
-    from rich.columns import Columns
     from rich.tree import Tree
-    from rich.syntax import Syntax
-    from rich.markdown import Markdown
+    from rich.progress import Progress, SpinnerColumn, TextColumn
+    from rich.columns import Columns
+    from rich.align import Align
     RICH_AVAILABLE = True
 except ImportError:
     RICH_AVAILABLE = False
 
-from ..config.settings import Config, get_env_config
-from ..models.paper import Paper, PaperContent
+from config.settings import Config, get_env_config
+from models.paper import Paper, PaperContent
 
 
 class OutputFormatter:

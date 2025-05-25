@@ -7,11 +7,11 @@ ArXiv爬虫核心类
 import logging
 from typing import List, Optional, Generator, Dict, Any
 
-from ..models.paper import Paper, PaperContent
-from ..parsers.html_parser import ArxivHtmlParser
-from ..utils.http_client import HttpClient, get_html
-from ..utils.text_utils import generate_page_params
-from ..config.settings import Config
+from models.paper import Paper, PaperContent
+from parsers.html_parser import ArxivHtmlParser
+from utils.http_client import HttpClient, get_html
+from utils.text_utils import generate_page_params
+from config.settings import Config
 
 
 class ArxivScraper:

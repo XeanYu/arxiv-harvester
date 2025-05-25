@@ -1,7 +1,7 @@
 """工具模块"""
 
-from .http_client import HttpClient, get_default_client, get_html
-from .text_utils import (
+from utils.http_client import HttpClient, get_default_client, get_html
+from utils.text_utils import (
     extract_total_count,
     clean_text,
     split_subjects,
@@ -10,7 +10,7 @@ from .text_utils import (
     normalize_url,
     clean_html_content
 )
-from .output_formatter import OutputFormatter, get_default_formatter, set_rich_output
+from utils.output_formatter import OutputFormatter, get_default_formatter, set_rich_output
 
 __all__ = [
     "HttpClient",

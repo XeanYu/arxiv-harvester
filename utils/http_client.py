@@ -1,7 +1,7 @@
 """
-HTTP客户端工具
+HTTP客户端
 
-提供统一的HTTP请求功能，包含重试机制和错误处理。
+提供统一的HTTP请求处理，包含重试机制和错误处理。
 """
 
 import requests
@@ -10,8 +10,9 @@ import logging
 from typing import Optional, Dict, Any
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+from contextlib import contextmanager
 
-from ..config.settings import Config
+from config.settings import Config
 
 
 class HttpClient:

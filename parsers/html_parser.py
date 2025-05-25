@@ -8,8 +8,8 @@ from bs4 import BeautifulSoup
 from typing import List, Optional, Dict, Any, Generator
 import logging
 
-from ..models.paper import Paper, PaperContent
-from ..utils.text_utils import (
+from models.paper import Paper, PaperContent
+from utils.text_utils import (
     clean_text, 
     split_subjects, 
     extract_arxiv_id, 
@@ -17,7 +17,7 @@ from ..utils.text_utils import (
     clean_html_content,
     extract_total_count as extract_count_from_text
 )
-from ..config.settings import Config
+from config.settings import Config
 
 
 class ArxivHtmlParser:

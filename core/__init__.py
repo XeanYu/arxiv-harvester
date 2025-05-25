@@ -1,5 +1,5 @@
 """核心模块"""
 
-from .scraper import ArxivScraper
+from core.scraper import ArxivScraper
 
 __all__ = ["ArxivScraper"]
